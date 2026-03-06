@@ -1,0 +1,29 @@
+# Build Folders
+bin/
+obj/
+Debug/
+Release/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio files
+.vs/
+*.vscode/
+
+# Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# DevExpress temporary files
+DevExpress.XtraReports.v21.2.dll
+DevExpress.XtraEditors.v21.2.dll
+
+# Others
+*.log
+*.pdb
