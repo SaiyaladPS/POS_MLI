@@ -1,27 +1,76 @@
-﻿using Npgsql;
-using System.Data;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Dapper;
+using Npgsql;
+using POS_MLI.Models;
 
 namespace POS_MLI.Services
 {
-    class DatabaseService
+    public static class DatabaseService
     {
-        private string connectionString = "Host=191.111.5.3;Port=5432;Username=postgres;Password=p@ssw0rd;Database=pgpos_xy";
-        public DataTable Query(string sql)
+        private static string connectionString;
+
+        public static bool Connect(DbConfig config)
         {
-            using (var conn = new NpgsqlConnection(connectionString))
+            try
+            {
+                connectionString =
+                    $"Host={config.Host};" +
+                    $"Port={config.Port};" +
+                    $"Username={config.Username};" +
+                    $"Password={config.Password};" +
+                    $"Database={config.Database};" +
+                    $"Pooling=true;" +
+                    $"Timeout=5;" +
+                    $"CommandTimeout=30;";
+
+                using (var conn = new NpgsqlConnection(connectionString))
+                {
+                    conn.Open();
+                    conn.Close();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static NpgsqlConnection GetConnection()
+        {
+            if (string.IsNullOrEmpty(connectionString))
+                throw new Exception("Database not connected. Call Connect() first.");
+
+            return new NpgsqlConnection(connectionString);
+        }
+
+        public static List<T> Query<T>(string sql, object param = null)
+        {
+            using (var conn = GetConnection())
             {
                 conn.Open();
+                return conn.Query<T>(sql, param).ToList();
+            }
+        }
 
-                using (var cmd = new NpgsqlCommand(sql, conn))
-                {
-                    using (var adapter = new NpgsqlDataAdapter(cmd))
-                    {
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
-                        return table;
-                    }
-                }
+        public static T QueryFirst<T>(string sql, object param = null)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                return conn.QueryFirstOrDefault<T>(sql, param);
+            }
+        }
+
+        public static int Execute(string sql, object param = null)
+        {
+            using (var conn = GetConnection())
+            {
+                conn.Open();
+                return conn.Execute(sql, param);
             }
         }
     }

@@ -36,4 +36,7 @@ D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\System.Threading.Tasks.Extensions.dll
 D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\DevExpress.XtraLayout.v23.1.xml
 D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\Npgsql.xml
 D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\laragon\www\POS_MLI\POS_MLI\obj\Debug\POS_MLI.Page.MainForm.resources
+D:\laragon\www\POS_MLI\POS_MLI\obj\Debug\POS_MLI.Forms.ConnectionForm.resources
+D:\laragon\www\POS_MLI\POS_MLI\obj\Debug\POS_MLI.Forms.loading.resources
+D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\Dapper.dll
+D:\laragon\www\POS_MLI\POS_MLI\bin\Debug\Dapper.xml

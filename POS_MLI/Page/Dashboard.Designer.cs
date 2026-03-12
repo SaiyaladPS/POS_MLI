@@ -35,8 +35,8 @@
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.tabFormControl1 = new DevExpress.XtraBars.TabFormControl();
-            this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
             this.tabFormPage1 = new DevExpress.XtraBars.TabFormPage();
+            this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabFormControl1)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,12 @@
             this.tabFormControl1.TabIndex = 2;
             this.tabFormControl1.TabStop = false;
             // 
+            // tabFormPage1
+            // 
+            this.tabFormPage1.ContentContainer = this.tabFormContentContainer1;
+            this.tabFormPage1.Name = "tabFormPage1";
+            this.tabFormPage1.Text = "Page 0";
+            // 
             // tabFormContentContainer1
             // 
             this.tabFormContentContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -102,12 +108,6 @@
             this.tabFormContentContainer1.Name = "tabFormContentContainer1";
             this.tabFormContentContainer1.Size = new System.Drawing.Size(1083, 521);
             this.tabFormContentContainer1.TabIndex = 3;
-            // 
-            // tabFormPage1
-            // 
-            this.tabFormPage1.ContentContainer = this.tabFormContentContainer1;
-            this.tabFormPage1.Name = "tabFormPage1";
-            this.tabFormPage1.Text = "Page 0";
             // 
             // Dashboard
             // 
@@ -119,6 +119,7 @@
             this.Controls.Add(this.tabFormContentContainer1);
             this.Controls.Add(this.tabFormControl1);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TabFormControl = this.tabFormControl1;
             this.Text = "Dashboard";
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
